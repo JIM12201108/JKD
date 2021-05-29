@@ -26,9 +26,9 @@ cron "0,30 7-22/1 * * *" script-path=https://raw.githubusercontent.com/shylocks/
 hostname = www.xiaodouzhuan.cn
 */
 const API_HOST = 'https://www.xiaodouzhuan.cn'
-let UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+let UA = 'Mozilla/5.0 (Linux; Android 8.1.0; COL-AL10 Build/HUAWEICOL-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.91 Mobile Safari/537.36'
 const DATE = `${new Date().getUTCFullYear()}${(new Date().getUTCMonth() + 1).toString().padStart(2, "0")}${new Date().getUTCDate().toString().padStart(2, "0")}`
-let liveBody = null, fakeIOS = true
+let liveBody = null, fakeIOS = false
 const $ = new Env("聚看点")
 let sum = 0
 let cookiesArr = [
