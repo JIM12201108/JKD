@@ -1,0 +1,68 @@
+name: 阅读
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '4 20,0,3,6,9 * * *'
+  watch:
+    types: started
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+      zqwzbody: ${{ secrets.zqwzbody }}
+      zqwzbody2: ${{ secrets.zqwzbody2 }}
+      zqwzbody3: ${{ secrets.zqwzbody3 }}
+      zqwzbody4: ${{ secrets.zqwzbody4 }}
+      zqwzbody5: ${{ secrets.zqwzbody5 }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        run: |
+          npm install
+
+      - name: '运行 【阅读一】'
+        if: env.zqwzbody
+        run: |
+          node zqwz.js
+        env:
+          zqwzbody: ${{ secrets.zqwzbody }}
+          zq_timebody: ${{ secrets.zq_timebody }}
+
+      - name: '运行 【阅读二】'
+        if: env.zqwzbody2
+        run: |
+          node zqwz.js
+        env:
+          zqwzbody: ${{ secrets.zqwzbody2 }}
+          zq_timebody: ${{ secrets.zq_timebody }}
+
+      - name: '运行 【阅读三】'
+        if: env.zqwzbody3
+        run: |
+          node zqwz.js
+        env:
+          zqwzbody: ${{ secrets.zqwzbody3 }}
+          zq_timebody: ${{ secrets.zq_timebody }}
+
+      - name: '运行 【阅读四】'
+        if: env.zqwzbody4
+        run: |
+          node zqwz.js
+        env:
+          zqwzbody: ${{ secrets.zqwzbody4 }}
+          zq_timebody: ${{ secrets.zq_timebody }}
+
+      - name: '运行 【阅读五】'
+        if: env.zqwzbody5
+        run: |
+          node zqwz.js
+        env:
+          zqwzbody: ${{ secrets.zqwzbody5 }}
+          zq_timebody: ${{ secrets.zq_timebody }}
